@@ -1,0 +1,215 @@
+.information {
+  min-height: 100vh;
+  position: relative;
+
+  .information-container {
+    color: $white;
+    max-width: 1000px !important;
+    padding: 0 2.5rem !important;
+  }
+
+  .types {
+    @include pokemon-types;
+    @include orden-flex;
+  }
+
+  .abilities {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+
+    & h4 {
+      font-size: 0.9rem;
+      font-weight: 900;
+      text-align: start;
+    }
+
+    .abilitie {
+      display: flex;
+      flex-direction: row;
+      font-size: 1rem;
+      font-weight: bold;
+      justify-content: flex-start;
+      letter-spacing: 2px;
+      margin-top: 10px;
+      text-transform: capitalize;
+
+      p {
+        align-items: center;
+        background-color: rgb(104, 104, 102);
+        display: flex;
+        font-size: 10px;
+        height: 30px;
+        justify-content: center;
+        margin-right: 1rem;
+        padding: 0;
+        width: 100px;
+      }
+    }
+  }
+
+  .skills-section {
+    flex-direction: column;
+
+    @include desktop {
+      height: 100%;
+    }
+  }
+
+  .skills {
+    @include desktop {
+      height: 200px;
+      @include orden-flex;
+      flex-direction: column;
+      margin: 0 2rem;
+    }
+  }
+
+  .description {
+    margin: 2rem 0;
+    text-align: justify;
+
+    & h4 {
+      font-size: 0.9rem;
+      font-weight: 900;
+    }
+
+    & div {
+      font-size: 0.9rem;
+    }
+
+    @include desktop {
+      padding-right: 5rem;
+    }
+  }
+
+  .stats-pokemon {
+    padding-bottom: 2rem;
+    text-align: start;
+    text-transform: capitalize;
+
+    & p {
+      font-size: 0.9rem;
+      margin-left: 0.5rem;
+      margin: 0;
+      padding: 0;
+      text-align: start;
+    }
+
+    & > div {
+      margin-top: 1rem;
+    }
+
+    & > div > div {
+      margin-top: 0.5rem;
+    }
+
+    @include desktop {
+      padding: 0 5rem 2rem 5rem;
+    }
+  }
+
+  .info {
+    font-size: 0.9rem;
+    text-align: justify;
+
+    & p {
+      font-weight: 900;
+    }
+
+    & p span {
+      font-weight: normal;
+    }
+  }
+
+  .title-name {
+    text-transform: capitalize;
+    font-weight: 900;
+  }
+
+  .type {
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin: 0 0 10px 0;
+    padding: 5px 10px;
+    text-transform: capitalize;
+
+    p {
+      align-items: center;
+      color: $white;
+      display: flex;
+      height: 30px;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+      width: 100px;
+    }
+  }
+
+  .poke-container {
+    margin-bottom: 2rem;
+
+    .pokeball {
+      border-radius: 100%;
+      border: $pkbBorder solid $gray;
+      box-sizing: border-box;
+      height: $pkbSize;
+      margin: 0 auto;
+      position: relative;
+      width: $pkbSize;
+      z-index: 100;
+      background: linear-gradient(
+        180deg,
+        $red 0%,
+        $red 44%,
+        $gray 44%,
+        $gray 56%,
+        $white 56%,
+        $white 100%
+      );
+
+      animation-duration: 1s;
+      animation-fill-mode: both;
+      animation-iteration-count: infinite;
+      animation-name: shake;
+
+      &:before,
+      &:after {
+        content: " ";
+        border-radius: 100%;
+        display: block;
+        position: absolute;
+      }
+
+      &:before {
+        background: $gray;
+        height: $beforeDiam;
+        left: calc(50% - #{$beforeDiam} / 2);
+        top: calc(50% - #{$beforeDiam} / 2);
+        width: $beforeDiam;
+      }
+
+      &:after {
+        background: #fff;
+        border: solid $pkbBorder $gray;
+        height: $beforeDiam;
+        left: calc(50% - #{$beforeDiam} / 2);
+        top: calc(50% - #{$beforeDiam} / 2);
+        width: $beforeDiam;
+      }
+
+      & img {
+        left: calc(30% - #{$beforeDiam} / 2);
+        position: absolute;
+        top: calc(30% - #{$beforeDiam} / 2);
+        width: 90%;
+        z-index: 1000;
+      }
+    }
+
+    @include desktop {
+      margin-bottom: 0;
+    }
+  }
+}

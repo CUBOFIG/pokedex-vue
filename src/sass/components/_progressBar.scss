@@ -1,0 +1,14 @@
+.progressbar {
+  border-radius: 2rem;
+  @include pokemon-stats;
+  width: 100%;
+  height: $progressbar-height;
+  background: $progressbar-background;
+
+  &-bar {
+    height: $progressbar-bar-height;
+    background: $progressbar-bar-background;
+    transition: $progressbar-bar-transition;
+    border-radius: 2rem;
+  }
+}

@@ -1,0 +1,89 @@
+@mixin pokemon-types {
+  .grass {
+    background: rgb(3, 139, 44);
+  }
+  .poison {
+    background: rgb(74, 7, 105);
+  }
+  .water {
+    background: rgb(8, 135, 219);
+  }
+  .dragon {
+    background: rgb(27, 2, 68);
+  }
+  .ice {
+    background: rgb(78, 199, 255);
+  }
+  .flying {
+    background: rgb(145, 215, 255);
+  }
+  .fire {
+    background: rgb(238, 135, 17);
+  }
+  .ghost {
+    background: rgb(74, 52, 87);
+  }
+  .fighting {
+    background: rgb(122, 0, 0);
+  }
+  .normal {
+    background: rgb(104, 104, 104);
+  }
+  .psychic {
+    background: rgb(195, 0, 255);
+  }
+  .bug {
+    background: rgb(52, 87, 6);
+  }
+  .dark {
+    background: rgb(43, 43, 43);
+  }
+  .steel {
+    background: rgb(116, 116, 116);
+  }
+  .fairy {
+    background: rgb(248, 165, 237);
+  }
+  .electric {
+    background: rgb(255, 217, 1);
+  }
+  .rock {
+    background: rgb(88, 95, 100);
+  }
+  .ground {
+    background: rgb(92, 70, 70);
+  }
+}
+
+@mixin pokemon-stats {
+  .hp {
+    background: rgb(15, 238, 82);
+  }
+  .attack {
+    background: rgb(15, 238, 82);
+  }
+  .defense {
+    background: rgb(15, 238, 82);
+  }
+  .special-attack {
+    background: rgb(15, 238, 82);
+  }
+  .special-defense {
+    background: rgb(15, 238, 82);
+  }
+  .speed {
+    background: rgb(15, 238, 82);
+  }
+}
+
+@mixin desktop {
+  @media only screen and (min-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin orden-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

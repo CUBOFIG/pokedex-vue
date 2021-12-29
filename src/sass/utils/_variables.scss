@@ -1,0 +1,16 @@
+$background: lighten(#e74c3c, 10);
+$breakpoint-tablet: 1000px;
+$gray: #262122;
+$pkbBorder: 15px;
+$pkbInner: 80px;
+$pkbSize: 200px;
+$progressbar-background: #e6e6e6 !default;
+$progressbar-bar-background: #3e4041 !default;
+$progressbar-bar-height: 100% !default;
+$progressbar-bar-transition: transform 2s ease !default;
+$progressbar-height: 1.25rem !default;
+$red: #ba0c2f;
+$white: #fff;
+$white: rgb(233, 233, 233);
+$beforeDiam: $pkbInner;
+$afterDiam: calc(#{$beforeDiam} - (#{$pkbBorder} * 3));
