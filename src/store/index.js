@@ -19,7 +19,6 @@ export default createStore({
   actions: {
     async addPokemonActual(context) {
       const numero = this.state.count;
-
       try {
         const response = await fetch(
           `https://pokeapi.co/api/v2/pokemon?limit=99&offset=${numero}00`
@@ -28,13 +27,13 @@ export default createStore({
         const data = await response.json();
         const json = data.results;
 
-        json.map(async (e) => {
+        json.map(async (pokemon) => {
           await axios
-            .get(e.url)
+            .get(pokemon.url)
             .then(function (response) {
               context.commit("addpokes", {
                 description: response.data,
-                name: e.name,
+                name: pokemon.name,
               });
             })
             .catch((error) => {

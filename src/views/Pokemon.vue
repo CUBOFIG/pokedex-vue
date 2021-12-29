@@ -46,13 +46,16 @@ export default {
           .then(async (response) => {
             const info_specie = await fetch(response.species.url);
             const data_specie = await info_specie.json();
-            const datitos = data_specie.flavor_text_entries.filter((entry) => {
-              if (entry["language"]["name"] == "en") {
-                return entry["flavor_text"];
-              }
-            });
 
-            this.description = datitos[0]["flavor_text"].replace(
+            const description_specie = data_specie.flavor_text_entries.filter(
+              (entry) => {
+                if (entry["language"]["name"] == "en") {
+                  return entry["flavor_text"];
+                }
+              }
+            );
+
+            this.description = description_specie[0]["flavor_text"].replace(
               /(\r\n|\n|\r|\f)/gm,
               " "
             );
