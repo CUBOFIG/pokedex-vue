@@ -1,5 +1,5 @@
 <template>
-  <section class="navbar-pokemon">
+  <section class="header">
     <router-link to="/">
       <img class="logo" src="../img/Logo.png" />
     </router-link>
@@ -8,6 +8,6 @@
 
 <script>
 export default {
-  name: "Navbar",
+  name: "Header",
 };
 </script>
