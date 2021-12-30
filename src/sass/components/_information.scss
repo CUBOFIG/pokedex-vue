@@ -48,20 +48,21 @@
     }
   }
 
+  .skills {
+    @include orden-flex;
+    flex-direction: column;
+
+    @include desktop {
+      height: 200px;
+      margin: 0 2rem;
+    }
+  }
+
   .skills-section {
     flex-direction: column;
 
     @include desktop {
       height: 100%;
-    }
-  }
-
-  .skills {
-    @include desktop {
-      height: 200px;
-      @include orden-flex;
-      flex-direction: column;
-      margin: 0 2rem;
     }
   }
 

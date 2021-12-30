@@ -1,0 +1,12 @@
+.home {
+  .result {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .result span {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+  }
+}

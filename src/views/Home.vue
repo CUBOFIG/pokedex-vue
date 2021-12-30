@@ -1,5 +1,5 @@
 <template>
-  <b-container>
+  <b-container class="home">
     <b-row>
       <b-col
         lg="4"
@@ -17,8 +17,8 @@
         />
       </b-col>
     </b-row>
+    <InfiniteLoading @infinite="load" :comments="pokemons" class="result" />
   </b-container>
-  <InfiniteLoading @infinite="load" :comments="pokemons" />
 </template>
 
 <script>
