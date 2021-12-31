@@ -16,6 +16,7 @@
 
 <script>
 import Information from "../components/Information.vue";
+import axios from "axios";
 
 const json_property = (json_data, identifier, string_to_extract) => {
   var vm = [];
@@ -24,6 +25,16 @@ const json_property = (json_data, identifier, string_to_extract) => {
     vm = [...vm, data];
   }
   return vm;
+};
+
+const getDescription = (info_specie) => {
+  const result = info_specie.data.flavor_text_entries.filter((entry) => {
+    if (entry["language"]["name"] == "en") {
+      return entry["flavor_text"];
+    }
+  });
+
+  return result[0]["flavor_text"].replace(/(\r\n|\n|\r|\f)/gm, " ");
 };
 
 export default {
@@ -39,30 +50,16 @@ export default {
   mounted() {
     const data = async () => {
       try {
-        await fetch(
-          `https://pokeapi.co/api/v2/pokemon/${this.$route.params.id}/`
-        )
-          .then((response) => response.json())
+        await axios
+          .get(`https://pokeapi.co/api/v2/pokemon/${this.$route.params.id}/`)
+          .then((response) => response.data)
           .then(async (response) => {
-            const info_specie = await fetch(response.species.url);
-            const data_specie = await info_specie.json();
+            const info_specie = await axios(response.species.url);
 
-            const description_specie = data_specie.flavor_text_entries.filter(
-              (entry) => {
-                if (entry["language"]["name"] == "en") {
-                  return entry["flavor_text"];
-                }
-              }
-            );
+            response.stats.map((e) => {
+              e.base_stat > 100 ? (e.base_stat = 100) : null;
+            });
 
-            this.description = description_specie[0]["flavor_text"].replace(
-              /(\r\n|\n|\r|\f)/gm,
-              " "
-            );
-
-            return response;
-          })
-          .then((response) => {
             response.weight = response.weight / 10;
             response.height = response.height * 10;
             response.types = json_property(response.types, "type", "name");
@@ -72,10 +69,7 @@ export default {
               "name"
             );
 
-            response.stats.map((e) => {
-              e.base_stat > 100 ? (e.base_stat = 100) : null;
-            });
-
+            this.description = getDescription(info_specie);
             this.info = response;
             this.img = response.sprites.front_default;
           });
